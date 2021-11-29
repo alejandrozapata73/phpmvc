@@ -1,10 +1,17 @@
 <?php
 
-include_once("controladores/contolador_paginas.php");
+echo $controlador;
+echo $accion;
 
-$controlador = new ControladorPaginas();
 
-$controlador->inicio();
+include_once("controladores/controlador_".$controlador.".php");
+
+$objControlador = "Controlador".ucfirst($controlador);
+
+
+$controlador = new $objControlador();
+
+$controlador->$accion();
 
 
 ?>
